@@ -1,0 +1,166 @@
+{
+  "valid": false,
+  "python_files": {
+    "validate.py": {
+      "valid": false,
+      "message": "Possible truncation: '...' found"
+    },
+    "backend\\api\\main.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\api\\routes.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\api\\__init__.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\core\\config.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\core\\extractor.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\core\\llm_manager.py": {
+      "valid": false,
+      "message": "Possible truncation: '...' found"
+    },
+    "backend\\core\\orchestrator.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\core\\search.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\core\\vector_store.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\core\\__init__.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\models\\schemas.py": {
+      "valid": false,
+      "message": "Possible truncation: '...' found"
+    },
+    "backend\\models\\__init__.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\utils\\cache.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\utils\\export.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "backend\\utils\\__init__.py": {
+      "valid": true,
+      "message": "Valid"
+    },
+    "frontend\\streamlit_app.py": {
+      "valid": true,
+      "message": "Valid"
+    }
+  },
+  "requirements": {
+    "valid": true,
+    "missing": []
+  },
+  "docker": {
+    "docker-compose": true,
+    "Dockerfile.backend": true,
+    "Dockerfile.frontend": true
+  },
+  "api_endpoints": {
+    "POST /research": true,
+    "GET /status": true,
+    "GET /research": true,
+    "GET /export": true
+  },
+  "structure": {
+    "backend/api": true,
+    "backend/core": true,
+    "backend/models": true,
+    "backend/utils": true,
+    "frontend": true,
+    "data": true
+  },
+  "errors": [
+    "validate.py: Possible truncation: '...' found",
+    "backend\\core\\llm_manager.py: Possible truncation: '...' found",
+    "backend\\models\\schemas.py: Possible truncation: '...' found"
+  ],
+  "warnings": [
+    "validate.py: External import: os",
+    "validate.py: External import: ast",
+    "validate.py: External import: sys",
+    "validate.py: External import: json",
+    "validate.py: External import: importlib.util",
+    "validate.py: External import: pathlib",
+    "validate.py: External import: typing",
+    "backend\\api\\routes.py: External import: fastapi",
+    "backend\\api\\routes.py: External import: typing",
+    "backend\\api\\routes.py: External import: asyncio",
+    "backend\\api\\routes.py: External import: uuid",
+    "backend\\core\\config.py: External import: os",
+    "backend\\core\\config.py: External import: pathlib",
+    "backend\\core\\config.py: External import: typing",
+    "backend\\core\\config.py: External import: pydantic_settings",
+    "backend\\core\\config.py: External import: dotenv",
+    "backend\\core\\extractor.py: External import: asyncio",
+    "backend\\core\\extractor.py: External import: aiohttp",
+    "backend\\core\\extractor.py: External import: typing",
+    "backend\\core\\extractor.py: External import: trafilatura",
+    "backend\\core\\extractor.py: External import: playwright.async_api",
+    "backend\\core\\extractor.py: External import: urllib.parse",
+    "backend\\core\\extractor.py: External import: tenacity",
+    "backend\\core\\extractor.py: External import: logging",
+    "backend\\core\\llm_manager.py: External import: os",
+    "backend\\core\\llm_manager.py: External import: asyncio",
+    "backend\\core\\llm_manager.py: External import: aiohttp",
+    "backend\\core\\llm_manager.py: External import: google.generativeai",
+    "backend\\core\\llm_manager.py: External import: typing",
+    "backend\\core\\llm_manager.py: External import: enum",
+    "backend\\core\\llm_manager.py: External import: datetime",
+    "backend\\core\\llm_manager.py: External import: logging",
+    "backend\\core\\llm_manager.py: External import: json",
+    "backend\\core\\search.py: External import: asyncio",
+    "backend\\core\\search.py: External import: aiohttp",
+    "backend\\core\\search.py: External import: typing",
+    "backend\\core\\search.py: External import: datetime",
+    "backend\\core\\search.py: External import: duckduckgo_search",
+    "backend\\core\\search.py: External import: tenacity",
+    "backend\\core\\search.py: External import: logging",
+    "backend\\models\\schemas.py: External import: pydantic",
+    "backend\\models\\schemas.py: External import: typing",
+    "backend\\models\\schemas.py: External import: datetime",
+    "backend\\models\\schemas.py: External import: enum",
+    "backend\\utils\\cache.py: External import: sqlite3",
+    "backend\\utils\\cache.py: External import: json",
+    "backend\\utils\\cache.py: External import: hashlib",
+    "backend\\utils\\cache.py: External import: pickle",
+    "backend\\utils\\cache.py: External import: threading",
+    "backend\\utils\\cache.py: External import: datetime",
+    "backend\\utils\\cache.py: External import: typing",
+    "backend\\utils\\cache.py: External import: contextlib",
+    "backend\\utils\\export.py: External import: reportlab.lib.pagesizes",
+    "backend\\utils\\export.py: External import: reportlab.lib.styles",
+    "backend\\utils\\export.py: External import: reportlab.lib.units",
+    "backend\\utils\\export.py: External import: reportlab.platypus",
+    "backend\\utils\\export.py: External import: reportlab.lib.enums",
+    "backend\\utils\\export.py: External import: reportlab.lib.colors",
+    "backend\\utils\\export.py: External import: io",
+    "backend\\utils\\export.py: External import: markdown2",
+    "backend\\utils\\export.py: External import: datetime",
+    "backend\\utils\\export.py: External import: typing",
+    "backend\\utils\\export.py: External import: json"
+  ]
+}

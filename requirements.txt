@@ -1,0 +1,44 @@
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Async Operations
+aiohttp==3.9.1
+asyncio-throttle==1.0.2
+
+# Data Models
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Search
+duckduckgo-search==6.1.0
+
+# Content Extraction
+trafilatura==1.6.3
+playwright==1.40.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# LLMs
+google-generativeai==0.3.2
+huggingface-hub==0.19.4
+openai==1.6.1  # For API compatibility
+
+# Vector Store & Cache
+chromadb==0.4.22
+sqlite-utils==3.35.2
+
+# Frontend
+streamlit==1.29.0
+streamlit-extras==0.3.6
+
+# Export
+reportlab==4.0.7
+markdown==3.5.1
+weasyprint==60.1
+
+# Utilities
+python-dotenv==1.0.0
+httpx==0.25.2
+tenacity==8.2.3

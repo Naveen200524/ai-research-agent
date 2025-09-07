@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: research-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - GOOGLE_AI_API_KEY=${GOOGLE_AI_API_KEY}
+      - HUGGINGFACE_API_KEY=${HUGGINGFACE_API_KEY}
+      - TOGETHER_API_KEY=${TOGETHER_API_KEY}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - BRAVE_API_KEY=${BRAVE_API_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./backend:/app/backend
+    networks:
+      - research-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: research-frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://backend:8000
+    depends_on:
+      - backend
+    networks:
+      - research-network
+    restart: unless-stopped
+
+networks:
+  research-network:
+    driver: bridge
+
+volumes:
+  data:

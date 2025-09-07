@@ -13,8 +13,6 @@ class Settings(BaseSettings):
     # API Keys
     google_ai_api_key: Optional[str] = os.getenv("GOOGLE_AI_API_KEY")
     huggingface_api_key: Optional[str] = os.getenv("HUGGINGFACE_API_KEY")
-    together_api_key: Optional[str] = os.getenv("TOGETHER_API_KEY")
-    deepseek_api_key: Optional[str] = os.getenv("DEEPSEEK_API_KEY")
     brave_api_key: Optional[str] = os.getenv("BRAVE_API_KEY")
     
     # Storage

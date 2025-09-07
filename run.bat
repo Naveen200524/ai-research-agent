@@ -7,7 +7,7 @@ if not exist .env (
     copy .env.example .env
     echo Please edit .env and add your API keys
     echo Required: GOOGLE_AI_API_KEY
-    echo Optional: HUGGINGFACE_API_KEY, TOGETHER_API_KEY, BRAVE_API_KEY
+    echo Optional: HUGGINGFACE_API_KEY, BRAVE_API_KEY
     pause
     exit /b 1
 )

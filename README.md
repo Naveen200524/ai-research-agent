@@ -22,7 +22,6 @@ A powerful, free, and open-source AI research assistant that automatically searc
 1. Get your free API keys:
    - **Google AI** (Required): [Get key](https://makersuite.google.com/app/apikey)
    - **Hugging Face** (Recommended): [Get key](https://huggingface.co/settings/tokens)
-   - **Together AI** (Optional): [Get $25 free credit](https://api.together.xyz/)
    - **Brave Search** (Optional): [Get 2000 free searches/month](https://brave.com/search/api/)
 
 ### Installation
@@ -130,16 +129,14 @@ The system automatically selects the best available model:
 
 1. **Gemini 2.0 Flash** (Primary) - 2M free tokens/day
 2. **Mixtral 8x7B** (Backup) - Via Hugging Face
-3. **Llama 3.2** (Backup) - Via Together AI
-4. **DeepSeek V3** (Paid backup) - $0.27/1M tokens
 
 ## 💰 Cost Analysis
 
 | Usage | Cost |
 |-------|------|
 | 100 queries/day | $0 (free tier) |
-| 1000 queries/day | ~$0.50 (with DeepSeek overflow) |
-| Unlimited | ~$2-3/day (all DeepSeek) |
+| 1000 queries/day | ~$0.50 (paid models) |
+| Unlimited | ~$2-3/day (paid models) |
 
 ## 🔧 Configuration
 

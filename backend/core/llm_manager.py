@@ -12,8 +12,6 @@ logger = logging.getLogger(__name__)
 
 class LLMProvider(Enum):
     GEMINI_FLASH = "gemini-2.0-flash"
-    DEEPSEEK = "deepseek-v3"
-    TOGETHER_LLAMA = "llama-3.2-11b"
     HUGGINGFACE_MIXTRAL = "mixtral-8x7b"
 
 class LLMManager:
@@ -37,31 +35,11 @@ class LLMManager:
             }
             logger.info("✓ Initialized Gemini Flash")
         
-        # Initialize DeepSeek
-        if os.getenv("DEEPSEEK_API_KEY"):
-            providers[LLMProvider.DEEPSEEK] = {
-                "available": True,
-                "priority": 2,
-                "cost_per_million": 0.27,
-                "api_key": os.getenv("DEEPSEEK_API_KEY")
-            }
-            logger.info("✓ Initialized DeepSeek")
-        
-        # Initialize Together AI
-        if os.getenv("TOGETHER_API_KEY"):
-            providers[LLMProvider.TOGETHER_LLAMA] = {
-                "available": True,
-                "priority": 3,
-                "cost_per_million": 0.20,
-                "api_key": os.getenv("TOGETHER_API_KEY")
-            }
-            logger.info("✓ Initialized Together AI")
-        
         # Initialize Hugging Face
         if os.getenv("HUGGINGFACE_API_KEY"):
             providers[LLMProvider.HUGGINGFACE_MIXTRAL] = {
                 "available": True,
-                "priority": 4,
+                "priority": 3,
                 "cost_per_million": 0,
                 "api_key": os.getenv("HUGGINGFACE_API_KEY")
             }
@@ -107,10 +85,6 @@ class LLMManager:
                 
                 if provider == LLMProvider.GEMINI_FLASH:
                     result = await self._call_gemini(prompt)
-                elif provider == LLMProvider.DEEPSEEK:
-                    result = await self._call_deepseek(prompt, config["api_key"])
-                elif provider == LLMProvider.TOGETHER_LLAMA:
-                    result = await self._call_together(prompt, config["api_key"])
                 elif provider == LLMProvider.HUGGINGFACE_MIXTRAL:
                     result = await self._call_huggingface(prompt, config["api_key"])
                 else:
@@ -207,60 +181,6 @@ Please provide a balanced summary covering the main points from the sources."""
             "text": response.text,
             "tokens": response.usage_metadata.total_token_count if hasattr(response, 'usage_metadata') else 0
         }
-
-    async def _call_deepseek(self, prompt: str, api_key: str) -> Dict:
-        """Call DeepSeek API"""
-        url = "https://api.deepseek.com/v1/chat/completions"
-
-        headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json"
-        }
-
-        data = {
-            "model": "deepseek-chat",
-            "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 4000,
-            "temperature": 0.3
-        }
-
-        async with aiohttp.ClientSession() as session:
-            async with session.post(url, headers=headers, json=data) as response:
-                if response.status != 200:
-                    raise Exception(f"DeepSeek API error: {response.status}")
-
-                result = await response.json()
-                return {
-                    "text": result["choices"][0]["message"]["content"],
-                    "tokens": result["usage"]["total_tokens"]
-                }
-
-    async def _call_together(self, prompt: str, api_key: str) -> Dict:
-        """Call Together AI API"""
-        url = "https://api.together.xyz/v1/chat/completions"
-
-        headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json"
-        }
-
-        data = {
-            "model": "meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo",
-            "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 4000,
-            "temperature": 0.3
-        }
-
-        async with aiohttp.ClientSession() as session:
-            async with session.post(url, headers=headers, json=data) as response:
-                if response.status != 200:
-                    raise Exception(f"Together AI API error: {response.status}")
-
-                result = await response.json()
-                return {
-                    "text": result["choices"][0]["message"]["content"],
-                    "tokens": result["usage"]["total_tokens"]
-                }
 
     async def _call_huggingface(self, prompt: str, api_key: str) -> Dict:
         """Call Hugging Face API"""

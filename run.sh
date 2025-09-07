@@ -10,7 +10,7 @@ if [ ! -f .env ]; then
     cp .env.example .env
     echo "📝 Please edit .env and add your API keys"
     echo "   Required: GOOGLE_AI_API_KEY"
-    echo "   Optional: HUGGINGFACE_API_KEY, TOGETHER_API_KEY, BRAVE_API_KEY"
+    echo "   Optional: HUGGINGFACE_API_KEY, BRAVE_API_KEY"
     exit 1
 fi
 

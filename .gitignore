@@ -75,3 +75,22 @@ docker-compose.override.yml
 # OS
 Thumbs.db
 Desktop.ini
+
+# AI/ML specific
+models/
+checkpoints/
+*.pkl
+*.h5
+*.model
+*.onnx
+*.pt
+*.pth
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Reports (if generated)
+reports/
+*.report

@@ -9,7 +9,7 @@ A powerful, free, and open-source AI research assistant that automatically searc
 - **Advanced Filtering**: Time-based search (past day/week/month/year)
 - **Rich Results**: Snippets, timestamps, and enhanced metadata
 - **Smart Caching**: Semantic similarity + exact match caching
-- **Multiple AI Models**: Gemini 2.0 Flash, Mixtral, Llama 3.2, DeepSeek
+- **Multiple AI Models**: Gemini 2.0 Flash, Mixtral
 - **Automatic Fallback**: Switches between models if one fails
 - **Export Options**: PDF, Markdown, JSON
 - **100% Free**: Uses free tiers of all services
